@@ -1,16 +1,25 @@
 import { Meta, Story } from '@storybook/react';
-import Button, { Props } from '../src/Button';
+import Button, { Props } from '../src/components/Button';
 
 const meta: Meta = {
   title: 'Button',
   component: Button,
+  argTypes: {
+    onClick: { action: 'clicked' },
+    children: {
+      defaultValue: 'default text',
+    },
+  },
 };
 export default meta;
 
-export const Primary: React.FC<Props> = () => (
-  <Button variant="primary">Click Me</Button>
-);
+const Template: Story<Props> = (args) => <Button {...args} />;
 
-export const Secondary: React.FC<Props> = () => (
-  <Button variant="secondary">Don't Click Me</Button>
-);
+export const Primary = Template.bind({});
+
+export const Secondary = Template.bind({});
+
+Secondary.args = {
+  variant: 'secondary',
+  children: 'I am secondary',
+};

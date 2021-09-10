@@ -1,4 +1,5 @@
-import React, { FC, HTMLAttributes, ReactChild } from 'react';
+import React from 'react';
+import { HTMLAttributes, ReactChild } from 'react';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** custom content, defaults to 'the snozzberries taste like snozzberries' */
@@ -10,6 +11,6 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 /**
  * A custom Thing component. Neat!
  */
-export const Thing: FC<Props> = ({ children }) => {
-  return <div>{children || `the snozzberries taste like snozzberries`}</div>;
+export const Thing: React.FC<Props> = ({ children }) => {
+  return <div>{'the snozzberries taste like snozzberries'}</div>;
 };
